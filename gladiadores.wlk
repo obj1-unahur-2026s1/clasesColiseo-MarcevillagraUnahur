@@ -11,13 +11,13 @@ class Gladiador {
 
   method estaVivo() = vida > 0
 
-  method recibirDanio(danio) {
-    vida = (vida - danio).max(0)
+  method recibirDaño(daño) {
+    vida = (vida - daño).max(0)
   }
 
   method atacar(otro) {
-    const danio = (self.poderAtaque() - otro.defensa()).max(0)
-    otro.recibirDanio(danio)
+    const daño = (self.poderAtaque() - otro.defensa()).max(0)
+    otro.recibirDaño(daño)
   }
 
   method pelearCon(otro) {

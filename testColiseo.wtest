@@ -118,13 +118,13 @@ describe "Tests de Combates y Coliseo" {
   const mirmillon = new Mirmillon(fuerza = 20, arma = espada, armadura = casco)
   const dima = new Dimachaerus(destreza = 20)
 
-  test "El gladiador sufre danio reduciendo su vida en la cantidad correspondiente" {
-    mirmillon.recibirDanio(35)
+  test "El gladiador sufre daño reduciendo su vida en la cantidad correspondiente" {
+    mirmillon.recibirDaño(35)
     assert.equals(65, mirmillon.vida())
   }
 
   test "Un gladiador no puede tener menos de 0 de vida" {
-    mirmillon.recibirDanio(150)
+    mirmillon.recibirDaño(150)
     assert.equals(0, mirmillon.vida())
   }
 
@@ -167,14 +167,14 @@ describe "Tests de Combates y Coliseo" {
   }
 
   test "El coliseo cura a un gladiador subiendo su vida al maximo" {
-    mirmillon.recibirDanio(40)
+    mirmillon.recibirDaño(40)
     coliseo.curar(mirmillon)
     assert.equals(100, mirmillon.vida())
   }
 
   test "El coliseo cura a todos los gladiadores de un grupo" {
-    mirmillon.recibirDanio(40)
-    dima.recibirDanio(50)
+    mirmillon.recibirDaño(40)
+    dima.recibirDaño(50)
     const grupo = new Grupo(nombre = "Grupo 1", gladiadores = [mirmillon, dima])
     coliseo.curar(grupo)
     assert.equals(100, dima.vida())
